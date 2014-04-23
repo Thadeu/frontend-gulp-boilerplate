@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Skeleton - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-Classe">Classe</a>
+      <li><a href="#label-Sobre+o+autor+e+licen%C3%A7a">Sobre o autor e licença</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>init.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-about">::about</a>
+    
+    <li ><a href="#method-c-create_gulpfile">::create_gulpfile</a>
+    
+    <li ><a href="#method-c-create_html">::create_html</a>
+    
+    <li ><a href="#method-c-create_package">::create_package</a>
+    
+    <li ><a href="#method-c-create_readme">::create_readme</a>
+    
+    <li ><a href="#method-c-make">::make</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/Skeleton_html.html">Skeleton.html</a>
+  
+    <li class="file"><a href="./doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="./doc/doc/Skeleton_html_html.html">Skeleton_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/created_rid_html.html">created_rid.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/Skeleton_html_html_html.html">Skeleton_html_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/created_rid_html_html.html">created_rid_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/doc/created_rid_html_html_html.html">created_rid_html_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/index_html_html_html.html">index_html_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/js/darkfish_js_html_html.html">darkfish_js_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/js/jquery_js_html_html.html">jquery_js_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/js/navigation_js_html_html.html">navigation_js_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/js/search_index_js_html_html.html">search_index_js_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/js/search_js_html_html.html">search_js_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/js/searcher_js_html_html.html">searcher_js_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/rdoc_css_html_html.html">rdoc_css_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/doc/table_of_contents_html_html_html.html">table_of_contents_html_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/index_html_html.html">index_html.html</a>
+  
+    <li class="file"><a href="./doc/doc/js/darkfish_js_html.html">darkfish_js.html</a>
+  
+    <li class="file"><a href="./doc/doc/js/jquery_js_html.html">jquery_js.html</a>
+  
+    <li class="file"><a href="./doc/doc/js/navigation_js_html.html">navigation_js.html</a>
+  
+    <li class="file"><a href="./doc/doc/js/search_index_js_html.html">search_index_js.html</a>
+  
+    <li class="file"><a href="./doc/doc/js/search_js_html.html">search_js.html</a>
+  
+    <li class="file"><a href="./doc/doc/js/searcher_js_html.html">searcher_js.html</a>
+  
+    <li class="file"><a href="./doc/doc/rdoc_css_html.html">rdoc_css.html</a>
+  
+    <li class="file"><a href="./doc/doc/table_of_contents_html_html.html">table_of_contents_html.html</a>
+  
+    <li class="file"><a href="./doc/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./doc/js/darkfish_js.html">darkfish.js</a>
+  
+    <li class="file"><a href="./doc/js/jquery_js.html">jquery.js</a>
+  
+    <li class="file"><a href="./doc/js/navigation_js.html">navigation.js</a>
+  
+    <li class="file"><a href="./doc/js/search_js.html">search.js</a>
+  
+    <li class="file"><a href="./doc/js/search_index_js.html">search_index.js</a>
+  
+    <li class="file"><a href="./doc/js/searcher_js.html">searcher.js</a>
+  
+    <li class="file"><a href="./doc/rdoc_css.html">rdoc.css</a>
+  
+    <li class="file"><a href="./doc/table_of_contents_html.html">table_of_contents.html</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Skeleton.html">Skeleton</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Skeleton</h1>
+
+  <div id="description" class="description">
+    
+<h2 id="label-Classe">Classe<span><a href="#label-Classe">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Esta é uma classe para geração de projeto front-end  para qualquer
+linguagem. Já com a inclusão de bootstrap, normalize, Gemfile Git e muitas
+outras ferramentas.</p>
+<hr style="height: 1px">
+
+<h2 id="label-Sobre+o+autor+e+licen%C3%A7a">Sobre o autor e licença<span><a href="#label-Sobre+o+autor+e+licen%C3%A7a">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<dl class="rdoc-list note-list"><dt>Autor
+<dd>
+<p>Thadeu Esteves Jr.</p>
+</dd><dt>Website
+<dd>
+<p><a href="http://tadeuesteves.wordpress.com">tadeuesteves.wordpress.com</a></p>
+</dd><dt>Email
+<dd>
+<p>tadeuu@gmail.com</p>
+</dd><dt>Licença
+<dd>
+<p>GPL</p>
+</dd></dl>
+
+<p>–</p>
+
+<p>++</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="PATH_SKELETON">PATH_SKELETON
+        
+        <dd class="description"><p>Responsavel por capturar o parâmetro passado pelo terminal</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-about" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">about</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>responsavel pela mensagem de entraga do projeto já compilado ao usuario.
+explicações básicas do projeto dados do desenvolvedor do plugin.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="about-source">
+            <pre><span class="ruby-comment"># File init.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">about</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#############################################################################&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\tParabéns, \n\tvocê terminou de gerar um projeto com gulp-frontend-generator automatizador&quot;</span>
+        
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\tProjeto Open source para comunidade Front-End/Back-end \n\tque utiliza o Gulp como automatizador de tarefas e componentes.&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\tAgora é só rodar o gulp.&quot;</span>
+        
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tEntre no projeto `cd #{PATH_SKELETON}`&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\tDigite: &#39;gulp watch&#39; e ative o LiveReload do chrome.&quot;</span>
+
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n\tEdite o arquivo `#{PATH_SKELETON}/src/stylesheets/main.scss` e seja feliz. &quot;</span>
+        
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\tCriado por Thadeu Esteves Jr.&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\tEmail: tadeuu@gmail.com&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\tBlog: http://tadeuesteves.wordpress.com&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\tSite: http://thadeuesteves.com.br&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#############################################################################&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- about-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- about-method -->
+
+    
+      <div id="method-c-create_gulpfile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_gulpfile</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>responsavel por adicionar as dependencias do gulp e crias as tasks do
+projeto para compilar css e o watch com livereload</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_gulpfile-source">
+            <pre><span class="ruby-comment"># File init.rb, line 124</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_gulpfile</span>
+                <span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{PATH_SKELETON}/gulpfile.js&quot;</span>, <span class="ruby-string">&quot;a&quot;</span>)
+                <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;
+var gulp = require(&#39;gulp&#39;),
+    sass = require(&#39;gulp-ruby-sass&#39;),
+    prefix = require(&#39;gulp-autoprefixer&#39;),
+    minifycss = require(&#39;gulp-minify-css&#39;),
+    refresh = require(&#39;gulp-livereload&#39;),
+    server = require (&#39;tiny-lr&#39;)();
+
+gulp.task(&#39;compileStyles&#39;,function(){
+    gulp.src(&#39;src/stylesheets/main.scss&#39;)
+        .pipe(sass({
+            noCache : true,
+            precision : 4,
+            unixNewlines : true
+        }))
+        .pipe(prefix(&#39;last 3 version&#39;))
+        .pipe(minifycss())
+        .pipe(gulp.dest(&#39;app/assets/stylesheets&#39;))
+        .pipe(refresh(server));
+});
+
+gulp.task(&#39;watch&#39;, function() {
+    server.listen(35729, function( err ) {
+        if ( err ) { return console.log( err ); }
+                                
+        gulp.watch(&#39;src/stylesheets/**/*.{sass,scss}&#39;, [
+            &#39;compileStyles&#39;
+        ]);
+    });
+});
+&quot;</span>
+                <span class="ruby-identifier">f</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">closed?</span>
+        <span class="ruby-keyword">end</span></pre>
+          </div><!-- create_gulpfile-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create_gulpfile-method -->
+
+    
+      <div id="method-c-create_html" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_html</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>responsavel por criar o arquivo index.html e escrever dentro o doctype e
+links para os styles e scripts</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_html-source">
+            <pre><span class="ruby-comment"># File init.rb, line 161</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_html</span>
+                <span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{PATH_SKELETON}/index.html&quot;</span>, <span class="ruby-string">&quot;a&quot;</span>)
+                <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;
+&lt;!doctype html&gt;
+&lt;html lang=\&quot;en\&quot;&gt;
+&lt;head&gt;
+        &lt;!-- METAS --&gt;
+        &lt;meta charset=\&quot;UTF-8\&quot;&gt;
+        &lt;!-- CSS --&gt;
+        &lt;link rel=\&quot;stylesheet\&quot; href=\&quot;app/assets/stylesheets/main.css\&quot;&gt;
+        &lt;!-- JS --&gt;
+        &lt;script src=\&quot;app/javascript/application.js\&quot;&gt;&lt;/script&gt;
+        &lt;!-- TITLE --&gt;
+        &lt;title&gt;Teste de gulp automatizado com Ruby&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+        
+&lt;/body&gt;
+&lt;/html&gt;&quot;</span>
+                <span class="ruby-identifier">f</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">closed?</span>
+        <span class="ruby-keyword">end</span></pre>
+          </div><!-- create_html-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create_html-method -->
+
+    
+      <div id="method-c-create_package" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_package</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Responsavel por criar o arquivo package.json</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_package-source">
+            <pre><span class="ruby-comment"># File init.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_package</span>
+        <span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{PATH_SKELETON}/package.json&quot;</span>, <span class="ruby-string">&quot;a&quot;</span>)
+        <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;{}&quot;</span>
+        <span class="ruby-identifier">f</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">closed?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create_package-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create_package-method -->
+
+    
+      <div id="method-c-create_readme" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_readme</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>responsavel por escrever o README do projeto</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_readme-source">
+            <pre><span class="ruby-comment"># File init.rb, line 184</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_readme</span>
+                <span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{PATH_SKELETON}/README.md&quot;</span>, <span class="ruby-string">&quot;a&quot;</span>)
+                <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;
+### Projeto #{PATH_SKELETON}
+Projeto Open source para comunidade Front-End/Back-end que utiliza o Gulp como automatizador de tarefas e componentes.
+Agora é só rodar o gulp.
+
+Digite: &#39;gulp watch&#39; e ative o livereload do chrome.
+                
+### LICENÇA E CRÉDITOS
+Criado por Thadeu Esteves Jr.
+Email: tadeuu@gmail.com
+Blog: http://tadeuesteves.wordpress.com
+Site: http://thadeuesteves.com.br
+Licença: Livre GPL para uso e distruibuição.
+&quot;</span>
+                <span class="ruby-identifier">f</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">closed?</span>
+        <span class="ruby-keyword">end</span></pre>
+          </div><!-- create_readme-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create_readme-method -->
+
+    
+      <div id="method-c-make" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make</span><span
+            class="method-args">(dir)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parametro obrigatorio</p>
+
+<h2 id="method-c-make-label-dir+%3A%3A+nome+da+pasta+para+cria%C3%A7%C3%A3o">dir :: nome da pasta para criação<span><a href="#method-c-make-label-dir+%3A%3A+nome+da+pasta+para+cria%C3%A7%C3%A3o">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>ex:</p>
+<ul><li>
+<p>app</p>
+</li><li>
+<p>vendor</p>
+</li><li>
+<p>lib</p>
+</li></ul>
+<hr style="height: 1px">
+          
+          
+
+          
+          <div class="method-source-code" id="make-source">
+            <pre><span class="ruby-comment"># File init.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">make</span>(<span class="ruby-identifier">dir</span>)
+        <span class="ruby-identifier">stylesheets</span> = [<span class="ruby-node">&quot;#{PATH_SKELETON}&quot;</span>,<span class="ruby-node">&quot;#{dir}&quot;</span>,<span class="ruby-string">&quot;assets&quot;</span>,<span class="ruby-string">&quot;stylesheets&quot;</span>]
+        <span class="ruby-identifier">javascript</span>    = [<span class="ruby-node">&quot;#{PATH_SKELETON}&quot;</span>,<span class="ruby-node">&quot;#{dir}&quot;</span>,<span class="ruby-string">&quot;assets&quot;</span>,<span class="ruby-string">&quot;javascripts&quot;</span>]
+        <span class="ruby-identifier">images</span>                        = [<span class="ruby-node">&quot;#{PATH_SKELETON}&quot;</span>,<span class="ruby-node">&quot;#{dir}&quot;</span>,<span class="ruby-string">&quot;assets&quot;</span>,<span class="ruby-string">&quot;images&quot;</span>]
+
+        <span class="ruby-identifier">src_images</span>                            = [<span class="ruby-node">&quot;#{PATH_SKELETON}&quot;</span>,<span class="ruby-string">&quot;src&quot;</span>,<span class="ruby-string">&quot;images&quot;</span>]
+        <span class="ruby-identifier">src_scripts</span>                   = [<span class="ruby-node">&quot;#{PATH_SKELETON}&quot;</span>,<span class="ruby-string">&quot;src&quot;</span>,<span class="ruby-string">&quot;scripts&quot;</span>]
+        <span class="ruby-identifier">src_stylesheets</span>       = [<span class="ruby-node">&quot;#{PATH_SKELETON}&quot;</span>,<span class="ruby-string">&quot;src&quot;</span>,<span class="ruby-string">&quot;stylesheets&quot;</span>]
+        
+        <span class="ruby-comment">#stylesheets</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">stylesheets</span>))
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span>(<span class="ruby-node">&quot;#{File.join(stylesheets)}/application.css&quot;</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{File.join(stylesheets)}&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{File.join(stylesheets)}/application.css&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+        <span class="ruby-comment">#javascript</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">javascript</span>))
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span>(<span class="ruby-node">&quot;#{File.join(javascript)}/application.js&quot;</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{File.join(javascript)}&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{File.join(javascript)}/application.js&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+        <span class="ruby-comment">#images</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">images</span>))
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span>(<span class="ruby-node">&quot;#{File.join(images)}/empty&quot;</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{File.join(images)}&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{File.join(images)}/empty&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+        <span class="ruby-comment">#criar pastas para o gulpfile.js</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">src_images</span>))
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{File.join(src_images)}&quot;</span>
+
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">src_scripts</span>))
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{File.join(src_scripts)}&quot;</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span>(<span class="ruby-node">&quot;#{File.join(src_scripts)}/application.js&quot;</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{File.join(src_scripts)}/aplication.js&quot;</span>
+        
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">src_stylesheets</span>))
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{File.join(src_stylesheets)}&quot;</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span>(<span class="ruby-node">&quot;#{File.join(src_stylesheets)}/main.scss&quot;</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{File.join(src_stylesheets)}/main.scss&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+        <span class="ruby-comment">#package.json</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span>(<span class="ruby-node">&quot;#{PATH_SKELETON}/package.json&quot;</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_package</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{PATH_SKELETON}/package.json&quot;</span>
+
+        <span class="ruby-comment">#gulpfile.js</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span>(<span class="ruby-node">&quot;#{PATH_SKELETON}/gulpfile.js&quot;</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_gulpfile</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{PATH_SKELETON}/gulpfile.js&quot;</span>
+        
+        <span class="ruby-comment">#README.md</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span>(<span class="ruby-node">&quot;#{PATH_SKELETON}/README.md&quot;</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_readme</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{PATH_SKELETON}/README.md&quot;</span>
+
+        <span class="ruby-comment">#index.html</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span>(<span class="ruby-node">&quot;#{PATH_SKELETON}/index.html&quot;</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_html</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcreate \t#{PATH_SKELETON}/index.html&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+        <span class="ruby-comment">#configurando o gulpfile</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\t\nConfigurando Gulp.........................................\n&quot;</span>
+        
+        <span class="ruby-comment">#instala o gulp, componentes básicos e entra na pasta do projeto PATH_SKELETON</span>
+        <span class="ruby-identifier">system</span>(<span class="ruby-node">&quot;cd #{PATH_SKELETON} &amp;&amp; npm install --save-dev gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-livereload tiny-lr&quot;</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#############################################################################&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\t--Gulp e componentes instalados&quot;</span>
+
+        <span class="ruby-comment">#inicia o git e escreve o primeiro commit</span>
+        <span class="ruby-identifier">system</span>(<span class="ruby-node">&quot;cd #{PATH_SKELETON} &amp;&amp; git init &amp;&amp; git add . &amp;&amp; git commit -am &#39;[First Commit]&#39;&quot;</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#############################################################################&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\t--Git iniciado e com primeiro comentário&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\t--Digite: `git status` para mais informações.&quot;</span>
+
+        <span class="ruby-comment">#sobre o automatizador</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">about</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- make-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- make-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
