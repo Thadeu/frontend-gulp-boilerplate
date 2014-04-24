@@ -84,16 +84,16 @@ class Skeleton
 		self.create_gulpfile
 		puts "\tcreate \t#{PATH_SKELETON}/gulpfile.js"
 		
-		#README.md
-		FileUtils.touch("#{PATH_SKELETON}/README.md")
-		self.create_readme
-		puts "\tcreate \t#{PATH_SKELETON}/README.md"
-
 		#index.html
 		FileUtils.touch("#{PATH_SKELETON}/index.html")
 		self.create_html
 		puts "\tcreate \t#{PATH_SKELETON}/index.html"
 		puts "\n"
+
+		#README.md
+		FileUtils.touch("#{PATH_SKELETON}/README.md")
+		self.create_readme
+		puts "\tcreate \t#{PATH_SKELETON}/README.md"
 
 		#configurando o gulpfile
 		puts "\t\nConfigurando Gulp.........................................\n"
@@ -120,6 +120,13 @@ class Skeleton
 		f.close unless f.closed?
 	end
 
+	#responsavel pela leitura do arquivo package.json para imprimir no readme
+	def self.read_package
+		File.open("#{PATH_SKELETON}/package.json") do |f|
+			puts File.read(f)
+		end
+	end
+
 	#responsavel por adicionar as dependencias do gulp e crias as tasks do projeto para compilar css e o watch com livereload
 	def self.create_gulpfile
 		f = File.new("#{PATH_SKELETON}/gulpfile.js", "a")
@@ -131,6 +138,7 @@ var gulp = require('gulp'),
     refresh = require('gulp-livereload'),
     server = require ('tiny-lr')();
 
+//compilar arquivos sass,scss para css
 gulp.task('compileStyles',function(){
     gulp.src('src/stylesheets/main.scss')
         .pipe(sass({
@@ -144,6 +152,8 @@ gulp.task('compileStyles',function(){
         .pipe(refresh(server));
 });
 
+//abre o servidor para reload funcionar, 
+//e ao mesmo tempo verifica os arquivos sass,scss para compilar
 gulp.task('watch', function() {
     server.listen(35729, function( err ) {
         if ( err ) { return console.log( err ); }
@@ -186,10 +196,7 @@ gulp.task('watch', function() {
 Projeto Open source para comunidade Front-End/Back-end que utiliza o Gulp como automatizador de tarefas e componentes.
 Agora é só rodar o gulp.
 
-Digite: 'gulp watch' e ative o livereload do chrome.
-
-###Dependências instaladas
-
+Digite: 'gulp watch' e ative a extensão LiveReload do Chrome Browser.
 		
 ### LICENÇA E CRÉDITOS
 Criado por Thadeu Esteves Jr.
@@ -206,20 +213,24 @@ Licença: Livre GPL para uso e distruibuição.
 	#dados do desenvolvedor do plugin.
 	def self.about
 		puts "#############################################################################"
-		puts "\tParabéns, \n\tvocê terminou de gerar um projeto com gulp-frontend-generator automatizador"
+		puts "Parabéns, \nvocê terminou de gerar um projeto com gulp-frontend-generator"
 		
-		puts "\n\tProjeto Open source para comunidade Front-End/Back-end \n\tque utiliza o Gulp como automatizador de tarefas e componentes."
-		puts "\n\tAgora é só rodar o gulp."
+		puts "Projeto Open source para comunidade Front-End/Back-end \nque utiliza o Gulp como automatizador de tarefas e componentes."
+		puts "\nAgora é só rodar o gulp."
 		
-		puts "\tEntre no projeto `cd #{PATH_SKELETON}`"
-		puts "\tDigite: 'gulp watch' e ative o LiveReload do chrome."
+		puts "Entre no projeto `cd #{PATH_SKELETON}`"
+		puts "Digite: 'gulp watch' e ative o LiveReload do navegador Chrome"
 
-		puts "\n\tEdite o arquivo `#{PATH_SKELETON}/src/stylesheets/main.scss` e seja feliz. "
+		puts "Edite o arquivo `#{PATH_SKELETON}/src/stylesheets/main.scss` e seja feliz."
+
+		puts "\nDependências instaladas..."
+		self.read_package
 		
-		puts "\n\tCriado por Thadeu Esteves Jr."
-		puts "\tEmail: tadeuu@gmail.com"
-		puts "\tBlog: http://tadeuesteves.wordpress.com"
-		puts "\tSite: http://thadeuesteves.com.br"
+		puts "\n--Créditos--"
+		puts "\nCriado por Thadeu Esteves Jr."
+		puts "Email: tadeuu@gmail.com"
+		puts "Blog: http://tadeuesteves.wordpress.com"
+		puts "Site: http://thadeuesteves.com.br"
 		puts "#############################################################################"
 	end
 end
