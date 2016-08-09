@@ -1,5 +1,5 @@
 # Projeto Open Source para desenvolvedores.
-***
+
 Com intuito de melhorar a criação de um projeto simples, onde irá trabalhar com <a href="http://gulpjs.com">Gulp Automatizador</a>, decidir desenvolver um gerador de código, pronto pra trabalhar com alguns plugins já instalados, configurados e com assets também já criados.
 
 Desenvolvi com Ruby, e pitadas de Javascript.

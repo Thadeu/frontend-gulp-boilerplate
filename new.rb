@@ -35,7 +35,7 @@ class Skeleton
 		images 			= ["#{PATH_SKELETON}","#{dir}","assets","images"]
 
 		src_images 				= ["#{PATH_SKELETON}","src","images"]
-		src_scripts 			= ["#{PATH_SKELETON}","src","scripts"]
+		src_javascripts		= ["#{PATH_SKELETON}","src","javascripts"]
 		src_stylesheets 	= ["#{PATH_SKELETON}","src","stylesheets"]
 		
 		#stylesheets
@@ -63,10 +63,10 @@ class Skeleton
 		FileUtils.mkdir_p(File.join(src_images))
 		puts "\tcreate \t#{File.join(src_images)}"
 
-		FileUtils.mkdir_p(File.join(src_scripts))
-		puts "\tcreate \t#{File.join(src_scripts)}"
-		FileUtils.touch("#{File.join(src_scripts)}/application.coffee")
-		puts "\tcreate \t#{File.join(src_scripts)}/aplication.coffee"
+		FileUtils.mkdir_p(File.join(src_javascripts))
+		puts "\tcreate \t#{File.join(src_javascripts)}"
+		FileUtils.touch("#{File.join(src_javascripts)}/application.coffee")
+		puts "\tcreate \t#{File.join(src_javascripts)}/aplication.coffee"
 		
 		FileUtils.mkdir_p(File.join(src_stylesheets))
 		puts "\tcreate \t#{File.join(src_stylesheets)}"
@@ -138,6 +138,7 @@ var gulp = require('gulp'),
   livereload = require('gulp-livereload'),
   server = require ('tiny-lr')(),
   gutil = require('gulp-util'),
+  concat = require('gulp-concat'),
   coffee = require('gulp-coffee');
 
 //compilar arquivos sass,scss para css
@@ -150,11 +151,11 @@ gulp.task('stylesheets',function(){
 });
 
 gulp.task('coffee', function() {
-  gulp.src('src/scripts/application.coffee')
+  gulp.src('src/javascripts/*.coffee')
     .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(concat('application.js'))
     .pipe(gulp.dest('app/assets/javascripts'))
     .pipe(livereload({ start: true }));
-  ;
 });
 
 //abre o servidor para reload funcionar, 
@@ -165,7 +166,7 @@ gulp.task('watch', function() {
     'stylesheets'
   ]);
 
-  gulp.watch('src/scripts/*.coffee', [
+  gulp.watch('src/javascripts/*.coffee', [
     'coffee'
   ]);
 });
