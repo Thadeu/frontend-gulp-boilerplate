@@ -99,9 +99,13 @@ class Skeleton
 		puts "\t\nConfigurando Gulp.........................................\n"
 		
 		#instala o gulp, componentes básicos e entra na pasta do projeto PATH_SKELETON
-		system("cd #{PATH_SKELETON} && sudo npm install --save-dev gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-livereload tiny-lr gulp-util gulp-coffee")
+		system("cd #{PATH_SKELETON} && sudo npm install --save-dev gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-livereload tiny-lr gulp-util gulp-coffee gulp-concat")
 		puts "#############################################################################"
 		puts "\n\t--Gulp e componentes instalados"
+    
+    self.gitignore
+    puts "\n\t-- .gitignore criado...."
+    puts "#############################################################################"
 
 		#inicia o git e escreve o primeiro commit
 		system("cd #{PATH_SKELETON} && git init && git add . && git commit -am '[First Commit]'")
@@ -112,6 +116,18 @@ class Skeleton
 		#sobre o automatizador
 		self.about
 	end
+  
+  def self.gitignore
+		f = File.new("#{PATH_SKELETON}/.gitignore", "a")
+		f.puts "#no-versions
+.DS_Store
+/node_modules
+.sass-cache
+/tmp
+.tmp
+    "
+		f.close unless f.closed?    
+  end
 
 	# Responsavel por criar o arquivo package.json
 	def self.create_package
