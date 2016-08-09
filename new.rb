@@ -65,13 +65,13 @@ class Skeleton
 
 		FileUtils.mkdir_p(File.join(src_scripts))
 		puts "\tcreate \t#{File.join(src_scripts)}"
-		FileUtils.touch("#{File.join(src_scripts)}/application.js")
-		puts "\tcreate \t#{File.join(src_scripts)}/aplication.js"
+		FileUtils.touch("#{File.join(src_scripts)}/application.coffee")
+		puts "\tcreate \t#{File.join(src_scripts)}/aplication.coffee"
 		
 		FileUtils.mkdir_p(File.join(src_stylesheets))
 		puts "\tcreate \t#{File.join(src_stylesheets)}"
-		FileUtils.touch("#{File.join(src_stylesheets)}/main.scss")
-		puts "\tcreate \t#{File.join(src_stylesheets)}/main.scss"
+		FileUtils.touch("#{File.join(src_stylesheets)}/application.scss")
+		puts "\tcreate \t#{File.join(src_stylesheets)}/application.scss"
 		puts "\n"
 
 		#package.json
@@ -99,7 +99,7 @@ class Skeleton
 		puts "\t\nConfigurando Gulp.........................................\n"
 		
 		#instala o gulp, componentes básicos e entra na pasta do projeto PATH_SKELETON
-		system("cd #{PATH_SKELETON} && sudo npm install --save-dev gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-livereload tiny-lr")
+		system("cd #{PATH_SKELETON} && sudo npm install --save-dev gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-livereload tiny-lr gulp-util gulp-coffee")
 		puts "#############################################################################"
 		puts "\n\t--Gulp e componentes instalados"
 
@@ -131,48 +131,43 @@ class Skeleton
 	def self.create_gulpfile
 		f = File.new("#{PATH_SKELETON}/gulpfile.js", "a")
 		f.puts "//configuration gulp added
-//configuration gulp added
 var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
-    prefix = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    refresh = require('gulp-livereload'),
-    server = require ('tiny-lr')();
+  sass = require('gulp-ruby-sass'),
+  prefix = require('gulp-autoprefixer'),
+  minifycss = require('gulp-minify-css'),
+  livereload = require('gulp-livereload'),
+  server = require ('tiny-lr')(),
+  gutil = require('gulp-util'),
+  coffee = require('gulp-coffee');
 
 //compilar arquivos sass,scss para css
-gulp.task('compileStyles',function(){
-    gulp.src('src/stylesheets/main.scss')
-        .pipe(sass({
-            noCache : true,
-            precision : 4,
-            unixNewlines : true
-        }))
-        .pipe(prefix('last 3 version'))
-        .pipe(minifycss())
-        .pipe(gulp.dest('app/assets/stylesheets'))
-        .pipe(refresh(server));
+gulp.task('stylesheets',function(){
+  sass('src/stylesheets/application.scss', {sourcemap: true})
+  .pipe(prefix('last 3 version'))
+  .pipe(minifycss())
+  .pipe(gulp.dest('app/assets/stylesheets'))
+  .pipe(livereload({ start: true }));
 });
 
-gulp.task('compileJS', function(){
-  gulp.src('src/scripts/application.js')
+gulp.task('coffee', function() {
+  gulp.src('src/scripts/application.coffee')
+    .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('app/assets/javascripts'))
-    .pipe(refresh(server));
+    .pipe(livereload({ start: true }));
+  ;
 });
 
 //abre o servidor para reload funcionar, 
 //e ao mesmo tempo verifica os arquivos sass,scss, js para compilar
 gulp.task('watch', function() {
-    server.listen(35729, function( err ) {
-        if ( err ) { return console.log( err ); }
-				
-        gulp.watch('src/stylesheets/**/*.{sass,scss}', [
-            'compileStyles'
-        ]);
+  livereload.listen();
+  gulp.watch('src/stylesheets/**/*.{sass,scss}', [
+    'stylesheets'
+  ]);
 
-        gulp.watch('src/scripts/**/*.{js,coffee}', [
-          'compileJS'
-        ]);
-    });
+  gulp.watch('src/scripts/*.coffee', [
+    'coffee'
+  ]);
 });
 "
 		f.close unless f.closed?
@@ -187,14 +182,14 @@ gulp.task('watch', function() {
 	<!-- METAS -->
 	<meta charset=\"UTF-8\">
 	<!-- CSS -->
-	<link rel=\"stylesheet\" href=\"app/assets/stylesheets/main.css\">
-	<!-- JS -->
-	<script src=\"app/assets/javascripts/application.js\"></script>
+	<link rel=\"stylesheet\" href=\"app/assets/stylesheets/application.css\">
 	<!-- TITLE -->
 	<title>Teste de gulp automatizado com Ruby</title>
 </head>
 <body>
 	
+  <!-- JS -->
+  <script src=\"app/assets/javascripts/application.js\"></script>
 </body>
 </html>"
 		f.close unless f.closed?
