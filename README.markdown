@@ -29,7 +29,7 @@ git clone https://github.com/Thadeu/frontend-gulp-boilerplate
 ```
 
 ```
-ruby skeleton/new.rb *NOME_PASTA*
+skeleton/new.rb *NOME_PASTA*
 ```
 
 ```

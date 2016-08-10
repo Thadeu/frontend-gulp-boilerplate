@@ -2,6 +2,8 @@
 
 require 'rubygems'
 require 'fileutils'
+require File.expand_path('../lib/files', __FILE__)
+require File.expand_path('../lib/gulp', __FILE__)
 
 # == Classe
 # Esta é uma classe para geração de projeto front-end 
@@ -21,58 +23,33 @@ require 'fileutils'
 class Skeleton
 	# Responsavel por capturar o parâmetro passado pelo terminal
 	PATH_SKELETON = ARGV[0]
+  
+	def self.make(dir)  
+    
+  	stylesheets = ["#{PATH_SKELETON}","#{dir}","assets","stylesheets"]
+  	javascript 	= ["#{PATH_SKELETON}","#{dir}","assets","javascripts"]
+  	images 			= ["#{PATH_SKELETON}","#{dir}","assets","images"]
 
-	# Parametro obrigatorio
-	# == dir :: nome da pasta para criação
-	# ex:
-	# * app
-	# * vendor
-	# * lib
-	# ---
-	def self.make(dir)
-		stylesheets = ["#{PATH_SKELETON}","#{dir}","assets","stylesheets"]
-		javascript 	= ["#{PATH_SKELETON}","#{dir}","assets","javascripts"]
-		images 			= ["#{PATH_SKELETON}","#{dir}","assets","images"]
-
-		src_images 				= ["#{PATH_SKELETON}","src","images"]
-		src_javascripts		= ["#{PATH_SKELETON}","src","javascripts"]
-		src_stylesheets 	= ["#{PATH_SKELETON}","src","stylesheets"]
-		
-		#stylesheets
-		FileUtils.mkdir_p(File.join(stylesheets))
-		FileUtils.touch("#{File.join(stylesheets)}/application.css")
-		puts "\tcreate \t#{File.join(stylesheets)}"
-		puts "\tcreate \t#{File.join(stylesheets)}/application.css"
-		puts "\n"
-
-		#javascript
-		FileUtils.mkdir_p(File.join(javascript))
-		FileUtils.touch("#{File.join(javascript)}/application.js")
-		puts "\tcreate \t#{File.join(javascript)}"
-		puts "\tcreate \t#{File.join(javascript)}/application.js"
-		puts "\n"
-
-		#images
-		FileUtils.mkdir_p(File.join(images))
-		FileUtils.touch("#{File.join(images)}/empty")
-		puts "\tcreate \t#{File.join(images)}"
-		puts "\tcreate \t#{File.join(images)}/empty"
-		puts "\n"
-
-		#criar pastas para o gulpfile.js
-		FileUtils.mkdir_p(File.join(src_images))
-		puts "\tcreate \t#{File.join(src_images)}"
-
-		FileUtils.mkdir_p(File.join(src_javascripts))
-		puts "\tcreate \t#{File.join(src_javascripts)}"
-		FileUtils.touch("#{File.join(src_javascripts)}/application.coffee")
-		puts "\tcreate \t#{File.join(src_javascripts)}/aplication.coffee"
-		
-		FileUtils.mkdir_p(File.join(src_stylesheets))
-		puts "\tcreate \t#{File.join(src_stylesheets)}"
-		FileUtils.touch("#{File.join(src_stylesheets)}/application.scss")
-		puts "\tcreate \t#{File.join(src_stylesheets)}/application.scss"
-		puts "\n"
+  	src_images 				= ["#{PATH_SKELETON}","src","images"]
+  	src_coffee		= ["#{PATH_SKELETON}","src","coffee"]
+    src_es6		= ["#{PATH_SKELETON}","src","es6"]
+  	src_stylesheets 	= ["#{PATH_SKELETON}","src","stylesheets"]
+    
+    #styles
+    Files.create({path: stylesheets.join("/") ,file: 'application', extension: 'css'})
+    #javascripts
+    Files.create({path: javascript.join("/") ,file: 'application', extension: 'js'})    
+    #images
+    Files.create({path: images.join("/") ,file: 'empty', extension: ''})
+    
+    #src_images
+    Files.create({path: src_images.join("/"), file: 'empty', extension: ''})
+    #src_styles
+    Files.create({path: src_coffee.join("/") ,file: 'app', extension: 'coffee'})
+    #src_javascripts
+    Files.create({path: src_es6.join("/") ,file: 'application', extension: 'js'})    
+    #src_javascripts
+    Files.create({path: src_stylesheets.join("/") ,file: 'application', extension: 'scss'})    
 
 		#package.json
 		FileUtils.touch("#{PATH_SKELETON}/package.json")
@@ -80,9 +57,7 @@ class Skeleton
 		puts "\tcreate \t#{PATH_SKELETON}/package.json"
 
 		#gulpfile.js
-		FileUtils.touch("#{PATH_SKELETON}/gulpfile.js")
-		self.create_gulpfile
-		puts "\tcreate \t#{PATH_SKELETON}/gulpfile.js"
+		Gulp.path(PATH_SKELETON).gulpfile
 		
 		#index.html
 		FileUtils.touch("#{PATH_SKELETON}/index.html")
@@ -96,15 +71,14 @@ class Skeleton
 		puts "\tcreate \t#{PATH_SKELETON}/README.md"
 
 		#configurando o gulpfile
-		puts "\t\nConfigurando Gulp.........................................\n"
+		Gulp.path(PATH_SKELETON).shell
 		
-		#instala o gulp, componentes básicos e entra na pasta do projeto PATH_SKELETON
-		system("cd #{PATH_SKELETON} && sudo npm install --save-dev gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-livereload tiny-lr gulp-util gulp-coffee gulp-concat")
-		puts "#############################################################################"
-		puts "\n\t--Gulp e componentes instalados"
-    
     self.gitignore
     puts "\n\t-- .gitignore criado...."
+    puts "#############################################################################"
+    
+    self.bowerrc
+    puts "\n\t-- .bowerrc criado...."
     puts "#############################################################################"
 
 		#inicia o git e escreve o primeiro commit
@@ -117,14 +91,33 @@ class Skeleton
 		self.about
 	end
   
+  def self.bowerrc
+    system("sudo npm install -g bower")
+    puts "\n\t--Bower Instalado....."
+		f = File.new("#{PATH_SKELETON}/.bowerrc", "a")
+		f.puts "
+{
+  \"directory\": \"app/components/\",
+  \"ignoredDependencies\": [
+    \"jquery\"
+  ]
+}
+    "
+		f.close unless f.closed?
+    
+    system("cd #{PATH_SKELETON} && bower install --save jquery2 bootstrap")
+    puts "\n\t--jquery e bootstrap configurados............."
+  end
+  
   def self.gitignore
 		f = File.new("#{PATH_SKELETON}/.gitignore", "a")
-		f.puts "#no-versions
+		f.puts "
 .DS_Store
 /node_modules
 .sass-cache
 /tmp
 .tmp
+app/components
     "
 		f.close unless f.closed?    
   end
@@ -143,69 +136,39 @@ class Skeleton
 		end
 	end
 
-	#responsavel por adicionar as dependencias do gulp e crias as tasks do projeto para compilar css e o watch com livereload
-	def self.create_gulpfile
-		f = File.new("#{PATH_SKELETON}/gulpfile.js", "a")
-		f.puts "//configuration gulp added
-var gulp = require('gulp'),
-  sass = require('gulp-ruby-sass'),
-  prefix = require('gulp-autoprefixer'),
-  minifycss = require('gulp-minify-css'),
-  livereload = require('gulp-livereload'),
-  server = require ('tiny-lr')(),
-  gutil = require('gulp-util'),
-  concat = require('gulp-concat'),
-  coffee = require('gulp-coffee');
-
-//compilar arquivos sass,scss para css
-gulp.task('stylesheets',function(){
-  sass('src/stylesheets/application.scss', {sourcemap: true})
-  .pipe(prefix('last 3 version'))
-  .pipe(minifycss())
-  .pipe(gulp.dest('app/assets/stylesheets'))
-  .pipe(livereload({ start: true }));
-});
-
-gulp.task('coffee', function() {
-  gulp.src('src/javascripts/*.coffee')
-    .pipe(coffee({bare: true}).on('error', gutil.log))
-    .pipe(concat('application.js'))
-    .pipe(gulp.dest('app/assets/javascripts'))
-    .pipe(livereload({ start: true }));
-});
-
-//abre o servidor para reload funcionar, 
-//e ao mesmo tempo verifica os arquivos sass,scss, js para compilar
-gulp.task('watch', function() {
-  livereload.listen();
-  gulp.watch('src/stylesheets/**/*.{sass,scss}', [
-    'stylesheets'
-  ]);
-
-  gulp.watch('src/javascripts/*.coffee', [
-    'coffee'
-  ]);
-});
-"
-		f.close unless f.closed?
-	end
-
 	# responsavel por criar o arquivo index.html e escrever dentro o doctype e links para os styles e scripts
 	def self.create_html
 		f = File.new("#{PATH_SKELETON}/index.html", "a")
-		f.puts "<!doctype html>
+		f.puts "<!DOCTYPE html>
 <html lang=\"en\">
 <head>
+
 	<!-- METAS -->
 	<meta charset=\"UTF-8\">
+
 	<!-- CSS -->
+	<link rel=\"stylesheet\" href=\"app/components/bootstrap/dist/css/bootstrap.min.css\">
 	<link rel=\"stylesheet\" href=\"app/assets/stylesheets/application.css\">
+
 	<!-- TITLE -->
-	<title>Teste de gulp automatizado com Ruby</title>
+	<title>frontend-gulp-boirlerplate</title>
+
 </head>
 <body>
-	
+
+	<div class=\"all\">
+		<div class=\"col-md-12\">
+			<h1>Frontend Gulp Boirlerplate!</h1>
+      <small>
+        by Thadeu Esteves Jr.
+      </small>
+		</div>
+	</div>
+
   <!-- JS -->
+	<script src=\"app/components/jquery2/jquery.min.js\"></script>
+	<script src=\"app/components/bootstrap/dist/js/bootstrap.min.js\"></script>
+	<script src=\"app/assets/javascripts/app.js\"></script>
   <script src=\"app/assets/javascripts/application.js\"></script>
 </body>
 </html>"
