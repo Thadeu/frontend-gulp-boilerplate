@@ -4,7 +4,7 @@ Com intuito de melhorar a criação de um projeto simples, onde irá trabalhar c
 
 Desenvolvi com Ruby, e pitadas de Javascript.
 
-## Necessario para funcionamento.
+## Necessário para funcionamento.
 <ol>
   <li><a href="https://rvm.io">Ruby</a></li>
   <li><a href="http://nodejs.org/download">NodeJS (npm)</a></li>
@@ -28,8 +28,8 @@ Desenvolvi com Ruby, e pitadas de Javascript.
 git clone https://github.com/Thadeu/frontend-gulp-boilerplate
 ```
 
-```
-skeleton/new.rb *NOME_PASTA*
+```bash
+new.rb *NOME_PASTA*
 ```
 
 ```

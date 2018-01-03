@@ -14,6 +14,7 @@ class Gulp
     gulp-coffee 
     gulp-concat 
     gulp-sourcemaps 
+    babel-core
     babel-preset-es2015 
     gulp-babel
   )
