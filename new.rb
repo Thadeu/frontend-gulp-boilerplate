@@ -49,7 +49,8 @@ class Skeleton
     #src_javascripts
     Files.create({path: src_es6.join("/") ,file: 'application', extension: 'js'})    
     #src_javascripts
-    Files.create({path: src_stylesheets.join("/") ,file: 'application', extension: 'scss'})    
+		Files.create({path: src_stylesheets.join("/") ,file: 'application', extension: 'scss'})    
+		self.update_application_scss(src_stylesheets.join("/"))
 
 		#package.json
 		FileUtils.touch("#{PATH_SKELETON}/package.json")
@@ -90,6 +91,20 @@ class Skeleton
 		#sobre o automatizador
 		self.about
 	end
+
+	def self.update_application_scss(folder)
+		f = File.new("#{folder}/application.scss", "a")
+		f.puts "
+.all {
+  background: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}"
+		f.close unless f.closed?
+	end
   
   def self.bowerrc
     system("sudo npm install -g bower")
@@ -129,7 +144,7 @@ app/components
 		f.close unless f.closed?
 	end
 
-	#responsavel pela leitura do arquivo package.json para imprimir no readme
+	# responsavel pela leitura do arquivo package.json para imprimir no readme
 	def self.read_package
 		File.open("#{PATH_SKELETON}/package.json") do |f|
 			puts File.read(f)
